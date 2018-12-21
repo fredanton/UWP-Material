@@ -10,7 +10,7 @@ I decided to go with the MVVM Basic data structure as it was highly recommended 
 - Empty boxes check
 - Basic Hashing & Salting of Password
 - Custom navigation bar
-- Logged in user in a "Session"
+- Logged in user is in a "Session"
 - Settings page with custom theme
 
 # Issues
