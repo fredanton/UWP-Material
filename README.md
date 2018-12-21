@@ -5,9 +5,13 @@ I decided to go with the MVVM Basic data structure as it was highly recommended 
 
 # Features
 - Basic Login & Sign Up
+- Password strenght check
+- Repeat password check
+- Empty boxes check
 - Basic Hashing & Salting of Password
 - Custom navigation bar
 - Logged in user in a "Session"
+- Settings page with custom theme
 
 # Issues
 If you're having issues with the application then consider Restoring NuGet Packages, if that did nothing, then try to clean the solution and rebuild solution (this usually resolves most issues).
