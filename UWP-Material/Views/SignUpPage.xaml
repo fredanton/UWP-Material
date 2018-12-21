@@ -11,8 +11,21 @@
         Margin="{StaticResource MediumLeftRightMargin}">
         <Grid
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.-->
+            <StackPanel Width="500px" VerticalAlignment="Center">
+                <Image Source="/Assets/icon.svg" Width="150" Height="150"></Image>
+                <TextBox Name="Username" Header="Username" PlaceholderText="Username"></TextBox>
+                <PasswordBox Name="Password" Header="Password" PlaceholderText="Password"></PasswordBox>
+                <PasswordBox Margin="0,5,0,0" Name="RepeatPassword" PlaceholderText="Repeat Password"></PasswordBox>
+
+                <StackPanel Name="StackPanelError" Visibility="Collapsed" Margin="0,10,0,10" HorizontalAlignment="Center">
+                    <TextBlock Foreground="{ThemeResource MaterialDesignBodyLight}" Name="Error"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Margin="0,10,0,10" HorizontalAlignment="Center">
+                    <Button Name="SignUp" Click="SignUp_Click" Width="100" Style="{StaticResource MaterialDesignRaisedLightButton}">SIGN UP</Button>
+                    <HyperlinkButton Name="Back" Click="Back_Click" HorizontalAlignment="Center">back to login</HyperlinkButton>
+                </StackPanel>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

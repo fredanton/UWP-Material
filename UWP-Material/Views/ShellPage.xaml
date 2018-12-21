@@ -20,26 +20,31 @@
 
     <winui:NavigationView
         x:Name="navigationView"
-        IsBackButtonVisible="Visible"
+        IsBackButtonVisible="Collapsed"
         IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
         SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
         IsSettingsVisible="True"
         ItemInvoked="OnItemInvoked"
         Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+
         <winui:NavigationView.MenuItems>
-            <!--
-            TODO WTS: Change the symbols for each item as appropriate for your app
-            More on Segoe UI Symbol icons: https://docs.microsoft.com/windows/uwp/style/segoe-ui-symbol-font
-            Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/projectTypes/navigationpane.md
-            Edit String/en-US/Resources.resw: Add a menu item title for each page
-            -->
+            <winui:NavigationViewItemHeader HorizontalAlignment="Center" Content="UWP-Material"/>
+            <winui:NavigationViewItemSeparator/>
             <winui:NavigationViewItem x:Uid="Shell_Main" Icon="Document" helpers:NavHelper.NavigateTo="views:MainPage" />
-            <winui:NavigationViewItem x:Uid="Shell_Users" Icon="Document" helpers:NavHelper.NavigateTo="views:UsersPage" />
-            <winui:NavigationViewItem x:Uid="Shell_Admin" Icon="Document" helpers:NavHelper.NavigateTo="views:AdminPage" />
-            <winui:NavigationViewItem x:Uid="Shell_Account" Icon="Document" helpers:NavHelper.NavigateTo="views:AccountPage" />
-            <winui:NavigationViewItem x:Uid="Shell_Login" Icon="Document" helpers:NavHelper.NavigateTo="views:LoginPage" />
-            <winui:NavigationViewItem x:Uid="Shell_SignUp" Icon="Document" helpers:NavHelper.NavigateTo="views:SignUpPage" />
+            
+            <winui:NavigationViewItemHeader Name="Managment" HorizontalAlignment="Center" Content="Managment"/>
+            <winui:NavigationViewItemSeparator Name="Separator"/>
+            <winui:NavigationViewItem Name="Admin" x:Uid="Shell_Admin" Icon="Admin" helpers:NavHelper.NavigateTo="views:AdminPage" />
+            <winui:NavigationViewItem Name="Account" x:Uid="Shell_Account" Icon="Account" helpers:NavHelper.NavigateTo="views:AccountPage" />
         </winui:NavigationView.MenuItems>
+
+        <winui:NavigationView.PaneFooter>
+            <StackPanel>
+                <winui:NavigationViewItem Tag="Login" Tapped="Login_Tapped" Name="Login" x:Uid="Shell_Login" Icon="Forward" helpers:NavHelper.NavigateTo="views:LoginPage" />
+                <winui:NavigationViewItem Tag="Logout" Tapped="Logout_Tapped" VerticalAlignment="Bottom" Name="Logout" x:Uid="Shell_Logout" Icon="Back" />
+            </StackPanel>
+        </winui:NavigationView.PaneFooter>
+
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior
                 DefaultHeader="{x:Bind ViewModel.Selected.Content, Mode=OneWay}">
@@ -56,7 +61,7 @@
             </behaviors:NavigationViewHeaderBehavior>
         </i:Interaction.Behaviors>
         <Grid>
-            <Frame x:Name="shellFrame" />
+            <Frame Name="shellFrame" />
         </Grid>
     </winui:NavigationView>
 </Page>

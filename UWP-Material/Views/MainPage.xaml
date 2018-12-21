@@ -12,16 +12,7 @@
         <Grid
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
             <StackPanel>
-                <TextBlock FontSize="28" Margin="8 0 0 0">Material Design In XAML Toolkit</TextBlock>
-                <TextBlock Margin="8 0 0 0" Foreground="{ThemeResource MaterialDesignBodyLight}">UWP Edition</TextBlock>
-                <StackPanel Margin="8 8 0 0" Orientation="Horizontal" VerticalAlignment="Top">
-                    <Button Width="100" Style="{StaticResource MaterialDesignRaisedLightButton}">LIGHT</Button>
-                    <Button Margin="8 0 0 0" Width="100" Style="{StaticResource MaterialDesignRaisedButton}">MID</Button>
-                    <Button Margin="8 0 0 0" Width="100" Style="{StaticResource MaterialDesignRaisedDarkButton}">DARK</Button>
-                    <Button Margin="8 0 0 0" Width="100" Style="{StaticResource MaterialDesignRaisedAccentButton}">ACCENT</Button>
-                </StackPanel>
-                <ToggleSwitch Style="{StaticResource MaterialDesignToggleSwitch}" />
-                <CheckBox Style="{StaticResource MaterialDesignCheckBox}">Material Design</CheckBox>
+                <TextBlock Name="CurrentUser" FontSize="28" Margin="8 0 0 0">Current User: </TextBlock>
             </StackPanel>
         </Grid>
     </Grid>
