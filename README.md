@@ -15,7 +15,8 @@ Any other then make a request on the github page.
 ![alt text](https://i.imgur.com/RimcyKl.png)
 
 # Author
-Alexander Bruun
+Alexander Bruun (@alxbrn)
 
 # Credits
-https://github.com/MaterialDesignInXAML
+https://github.com/MaterialDesignInXAML (@Material Design In XAML)
+
