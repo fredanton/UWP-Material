@@ -4,7 +4,7 @@ A extensive universal windows platform template using material design. Feel free
 I decided to go with the MVVM Basic data structure as it was highly recommended by friends & teachers, feel free to change it to your own needs.
 
 # Issues
-If you're having issues with the application then consider Restoring NuGet Packages, if that did nothing, then try to clean the solution and rebuild.
+If you're having issues with the application then consider Restoring NuGet Packages, if that did nothing, then try to clean the solution and rebuild solution (this usually resolves most issues).
 
 Any other then make a request on the github page.
 
