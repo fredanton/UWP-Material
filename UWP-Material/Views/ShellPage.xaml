@@ -31,20 +31,15 @@
             <winui:NavigationViewItemHeader HorizontalAlignment="Center" Content="UWP-Material"/>
             <winui:NavigationViewItemSeparator/>
             <winui:NavigationViewItem x:Uid="Shell_Main" Icon="Document" helpers:NavHelper.NavigateTo="views:MainPage" />
-            
-            <winui:NavigationViewItemHeader Name="Managment" HorizontalAlignment="Center" Content="Managment"/>
-            <winui:NavigationViewItemSeparator Name="Separator"/>
+
+            <winui:NavigationViewItemHeader HorizontalAlignment="Center" Content="Management"/>
+            <winui:NavigationViewItemSeparator />
             <winui:NavigationViewItem Name="Admin" x:Uid="Shell_Admin" Icon="Admin" helpers:NavHelper.NavigateTo="views:AdminPage" />
             <winui:NavigationViewItem Name="Account" x:Uid="Shell_Account" Icon="Account" helpers:NavHelper.NavigateTo="views:AccountPage" />
+            <winui:NavigationViewItem Name="Login" x:Uid="Shell_Login" Icon="Forward" helpers:NavHelper.NavigateTo="views:LoginPage"/>
+            <winui:NavigationViewItem Tapped="Logout_Tapped" Name="Logout" x:Uid="Shell_Logout" Icon="Back" />
         </winui:NavigationView.MenuItems>
-
-        <winui:NavigationView.PaneFooter>
-            <StackPanel>
-                <winui:NavigationViewItem Tag="Login" Tapped="Login_Tapped" Name="Login" x:Uid="Shell_Login" Icon="Forward" helpers:NavHelper.NavigateTo="views:LoginPage" />
-                <winui:NavigationViewItem Tag="Logout" Tapped="Logout_Tapped" VerticalAlignment="Bottom" Name="Logout" x:Uid="Shell_Logout" Icon="Back" />
-            </StackPanel>
-        </winui:NavigationView.PaneFooter>
-
+        
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior
                 DefaultHeader="{x:Bind ViewModel.Selected.Content, Mode=OneWay}">

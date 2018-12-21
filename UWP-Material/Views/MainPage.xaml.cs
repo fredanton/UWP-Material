@@ -18,7 +18,7 @@ namespace UWP_Material.Views
             {
                 CurrentUser.Text += " ";
                 CurrentUser.Text += userSingleton.CurrentUser.Username;
-        }
+            }
         }
     }
 }

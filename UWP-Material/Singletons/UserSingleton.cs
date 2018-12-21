@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using UWP_Material.Models;
 
 namespace UWP_Material.Singletons
 {
-    class UserSingleton
+    internal class UserSingleton
     {
         private static UserSingleton _instance;
 

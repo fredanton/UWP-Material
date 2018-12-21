@@ -36,7 +36,7 @@ namespace UWP_Material.Views
 
                 string pwunhashed = Encoding.UTF8.GetString(PasswordManager.GenerateSaltedHash(pw, st));
 
-                foreach (var i in userSingleton.Users)
+                foreach (Models.User i in userSingleton.Users)
                 {
                     if (i.Username == Username.Text && i.Password == pwunhashed)
                     {

@@ -1,6 +1,4 @@
-﻿
-using System.ComponentModel;
-using System.Text;
+﻿using System.Text;
 using UWP_Material.Helpers;
 using UWP_Material.Models;
 using UWP_Material.Singletons;
@@ -8,11 +6,9 @@ using Windows.UI.Xaml.Controls;
 
 namespace UWP_Material.Views
 {
-    public sealed partial class SignUpPage : Page, INotifyPropertyChanged
+    public sealed partial class SignUpPage : Page
     {
         private static UserSingleton userSingleton { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public SignUpPage()
         {

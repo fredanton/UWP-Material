@@ -37,10 +37,10 @@
                 <StackPanel Margin="0,10,0,10" Orientation="Horizontal" HorizontalAlignment="Center">
                     <ToggleSwitch Style="{StaticResource MaterialDesignToggleSwitch}" />
                     <TextBlock Text="remember me" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{ThemeResource MaterialDesignBodyLight}"></TextBlock>
-                    <Button Name="Login" Click="Login_Click" Margin="225,0,0,0" Width="100" Style="{StaticResource MaterialDesignRaisedButton}">LOGIN</Button>
+                    <Button Name="SignUp" Click="SignUp_Click" Margin="225,0,0,0" Width="100" Style="{StaticResource MaterialDesignRaisedLightButton}">SIGN UP</Button>
                 </StackPanel>
                 <StackPanel Margin="0,10,0,10" HorizontalAlignment="Center">
-                    <Button Name="SignUp" Click="SignUp_Click" Width="100" Style="{StaticResource MaterialDesignRaisedLightButton}">SIGN UP</Button>
+                    <Button Name="Login" Click="Login_Click"  Width="100" Style="{StaticResource MaterialDesignRaisedButton}">LOGIN</Button>
                     <HyperlinkButton HorizontalAlignment="Center">forgot password</HyperlinkButton>
                 </StackPanel>
             </StackPanel>

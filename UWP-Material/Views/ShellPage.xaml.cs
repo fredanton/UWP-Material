@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using UWP_Material.Singletons;
 using UWP_Material.ViewModels;
 using Windows.System.Threading;
@@ -20,10 +21,10 @@ namespace UWP_Material.Views
             InitializeComponent();
             DataContext = ViewModel;
             ViewModel.Initialize(shellFrame, navigationView, KeyboardAccelerators);
-            
+
             Loop();
         }
-
+        
         public void Loop()
         {
             TimeSpan period = TimeSpan.FromSeconds(0.1);
@@ -37,8 +38,6 @@ namespace UWP_Material.Views
 
                         if (userSingleton.CurrentUser == null)
                         {
-                            Managment.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                            Separator.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                             Admin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                             Account.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                             Login.Visibility = Windows.UI.Xaml.Visibility.Visible;
@@ -46,8 +45,6 @@ namespace UWP_Material.Views
                         }
                         else
                         {
-                            Managment.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                            Separator.Visibility = Windows.UI.Xaml.Visibility.Visible;
                             Admin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                             Account.Visibility = Windows.UI.Xaml.Visibility.Visible;
                             Login.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
@@ -61,11 +58,6 @@ namespace UWP_Material.Views
         private void OnItemInvoked(WinUI.NavigationView sender, WinUI.NavigationViewItemInvokedEventArgs args)
         {
             ViewModel.ItemInvokedCommand.Execute(args);
-        }
-
-        private void Login_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            shellFrame.Navigate(typeof(LoginPage));
         }
 
         private void Logout_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
