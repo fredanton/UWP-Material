@@ -16,7 +16,7 @@ A quick look at the default mainpage.
 ![alt text](https://i.imgur.com/RimcyKl.png)
 
 # Author
-@ Alexander Bruun
+Alexander Bruun
 
 # Credits
-@ https://github.com/MaterialDesignInXAML
+https://github.com/MaterialDesignInXAML
