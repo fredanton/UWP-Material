@@ -9,7 +9,6 @@ If you're having issues with the application then consider Restoring NuGet Packa
 Any other then make a request on the github page.
 
 # Main Page
-A quick look at the default mainpage.
 ![alt text](https://i.imgur.com/DeoWqrB.png)
 
 # Solution Structure
