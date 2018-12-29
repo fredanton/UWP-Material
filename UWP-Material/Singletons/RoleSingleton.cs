@@ -1,44 +1,42 @@
 ﻿using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using UWP_Material.Helpers;
 using UWP_Material.Models;
+using UWP_Material.Helpers;
 
 namespace UWP_Material.Singletons
 {
-    internal class UserSingleton
+    class RoleSingleton
     {
-        private static UserSingleton _instance;
+        private static RoleSingleton _instance;
 
-        public static UserSingleton Instance => _instance ?? (_instance = new UserSingleton());
+        public static RoleSingleton Instance => _instance ?? (_instance = new RoleSingleton());
 
-        public ObservableCollection<User> Users { get; set; }
+        public ObservableCollection<Role> Roles { get; set; }
 
-        public User CurrentUser { get; set; } = null;
+        public Role CurrentUser { get; set; } = null;
 
-        private UserSingleton()
+        private RoleSingleton()
         {
-            Users = new ObservableCollection<User>();
+            Roles = new ObservableCollection<Role>();
 
             using (SqlConnection conn = new SqlConnection(Constants.ConnectionString))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "select * from Users";
+                    cmd.CommandText = "select * from Roles";
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            User user = new User
+                            Role role = new Role
                             {
                                 Id = reader.GetInt32(0),
-                                Username = reader.GetString(1),
-                                Password = reader.GetString(2),
-                                Rank = reader.GetInt32(3)
+                                Name = reader.GetString(1)
                             };
 
-                            Users.Add(user);
+                            Roles.Add(role);
                         }
                     }
                 }

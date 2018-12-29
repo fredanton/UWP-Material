@@ -24,22 +24,22 @@
         IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
         SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
         IsSettingsVisible="True"
+        PaneTitle="UWP-Material"
         ItemInvoked="OnItemInvoked"
         Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
 
         <winui:NavigationView.MenuItems>
-            <winui:NavigationViewItemHeader HorizontalAlignment="Center" Content="UWP-Material"/>
+            <winui:NavigationViewItemHeader HorizontalAlignment="Center" Content="Pages"/>
             <winui:NavigationViewItemSeparator/>
             <winui:NavigationViewItem x:Uid="Shell_Main" Icon="Document" helpers:NavHelper.NavigateTo="views:MainPage" />
-
             <winui:NavigationViewItemHeader HorizontalAlignment="Center" Content="Management"/>
             <winui:NavigationViewItemSeparator />
             <winui:NavigationViewItem Name="Admin" x:Uid="Shell_Admin" Icon="Admin" helpers:NavHelper.NavigateTo="views:AdminPage" />
             <winui:NavigationViewItem Name="Account" x:Uid="Shell_Account" Icon="Account" helpers:NavHelper.NavigateTo="views:AccountPage" />
             <winui:NavigationViewItem Name="Login" x:Uid="Shell_Login" Icon="Forward" helpers:NavHelper.NavigateTo="views:LoginPage"/>
-            <winui:NavigationViewItem Tapped="Logout_Tapped" Name="Logout" x:Uid="Shell_Logout" Icon="Back" />
+            <winui:NavigationViewItem Tapped="Logout_Tapped" Name="Logout" x:Uid="Shell_Logout" Icon="Back" helpers:NavHelper.NavigateTo="views:LoginPage" />
         </winui:NavigationView.MenuItems>
-        
+
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior
                 DefaultHeader="{x:Bind ViewModel.Selected.Content, Mode=OneWay}">

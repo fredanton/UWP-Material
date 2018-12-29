@@ -1,9 +1,13 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using UWP_Material.Helpers;
 using UWP_Material.Models;
 using UWP_Material.Singletons;
+using Windows.UI.Xaml.Controls;
 
 namespace UWP_Material.ViewModels
 {
@@ -58,6 +62,19 @@ namespace UWP_Material.ViewModels
             AddCommand = new RelayCommand(() =>
             {
                 Users.Add(NewUser);
+
+                SqlConnection conn = new SqlConnection(Constants.ConnectionString);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                cmd.CommandText = "INSERT INTO Users (user_username, user_password) VALUES (@username, @password)";
+
+                cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = NewUser.Username;
+                cmd.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = NewUser.Password;
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
             });
 
             DeleteCommand = new RelayCommand(() =>
@@ -69,7 +86,6 @@ namespace UWP_Material.ViewModels
             {
                 SelectedUser = null;
             });
-
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

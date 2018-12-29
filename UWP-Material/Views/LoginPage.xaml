@@ -18,16 +18,6 @@
         <Grid
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
             <StackPanel Width="500px" VerticalAlignment="Center">
-                <ListView ItemsSource="{Binding Users}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Username}"></TextBlock>
-                                <TextBlock Text="{Binding Password}"></TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
                 <Image Source="/Assets/icon.svg" Width="150" Height="150"></Image>
                 <TextBox Name="Username" Header="Username" PlaceholderText="Username"></TextBox>
                 <PasswordBox Name="Password" Header="Password" PlaceholderText="Password"></PasswordBox>

@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Data;
+using System.Data.SqlClient;
+using System.Text;
 using UWP_Material.Helpers;
 using UWP_Material.Models;
 using UWP_Material.Singletons;
@@ -19,7 +21,7 @@ namespace UWP_Material.Views
 
         private void SignUp_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            if (Username.Text == null || Password.Password == null || RepeatPassword.Password == null)
+            if (Username.Text == "" || Password.Password == "" || RepeatPassword.Password == "")
             {
                 StackPanelError.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 Error.Text = "Please provide all information to sign up.";
@@ -40,17 +42,29 @@ namespace UWP_Material.Views
                         StackPanelError.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                         Error.Text = "";
 
-                        byte[] pw = Encoding.ASCII.GetBytes(RepeatPassword.Password);
-                        byte[] st = Encoding.ASCII.GetBytes("alxbrn");
+                        // Local observable collection insert
+                        var x = new User();
 
-                        string pwunhashed = Encoding.UTF8.GetString(PasswordManager.GenerateSaltedHash(pw, st));
+                        x.Username = Username.Text;
+                        x.Password = Password.Password;
 
-                        userSingleton.Users.Add(
-                            new User(
-                                Username.Text,
-                                pwunhashed)
-                        );
+                        userSingleton.Users.Add(x);
 
+                        // Database insert
+                        SqlConnection conn = new SqlConnection(Constants.ConnectionString);
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = conn;
+
+                        cmd.CommandText = "INSERT INTO Users (user_username, user_password) VALUES (@username, @password)";
+
+                        cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = x.Username;
+                        cmd.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = x.Password;
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+
+                        // Success frame navigate
                         Frame.Navigate(typeof(LoginPage));
                     }
                     else

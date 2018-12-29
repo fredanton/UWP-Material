@@ -8,13 +8,17 @@ namespace UWP_Material.Models
 {
     class User
     {
+        public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public int Rank { get; set; }
 
-        public User(string username = null, string password = null)
+        public User(int id = -1, string username = null, string password = null, int rank = 1)
         {
+            Id = id;
             Username = username;
             Password = password;
+            Rank = Rank;
         }
     }
 }

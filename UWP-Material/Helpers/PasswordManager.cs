@@ -29,7 +29,7 @@ namespace UWP_Material.Helpers
             if (password.Length < 4)
                 return PasswordScore.VeryWeak;
             if (password.Length >= 8)
-                score++;
+                score += 2;
             if (password.Length >= 12)
                 score++;
             if (Regex.Match(password, @"/\d+/", RegexOptions.ECMAScript).Success)
@@ -38,46 +38,15 @@ namespace UWP_Material.Helpers
               Regex.Match(password, @"/[A-Z]/", RegexOptions.ECMAScript).Success)
                 score++;
             if (Regex.Match(password, @"/.[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]/", RegexOptions.ECMAScript).Success)
-                score++;
+                score += 2;
 
             return (PasswordScore)score;
         }
 
-        public static byte[] GenerateSaltedHash(byte[] plainText, byte[] salt)
-        {
-            HashAlgorithm algorithm = new SHA256Managed();
-
-            byte[] plainTextWithSaltBytes =
-              new byte[plainText.Length + salt.Length];
-
-            for (int i = 0; i < plainText.Length; i++)
-            {
-                plainTextWithSaltBytes[i] = plainText[i];
-            }
-            for (int i = 0; i < salt.Length; i++)
-            {
-                plainTextWithSaltBytes[plainText.Length + i] = salt[i];
-            }
-
-            return algorithm.ComputeHash(plainTextWithSaltBytes);
-        }
-
-        public static bool CompareByteArrays(byte[] array1, byte[] array2)
-        {
-            if (array1.Length != array2.Length)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < array1.Length; i++)
-            {
-                if (array1[i] != array2[i])
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
+        /*
+         *
+         * TODO: Add functions to do simple hashing with a randomly generated salt string.
+         *
+         * */
     }
 }

@@ -116,6 +116,7 @@
     <Compile Include="Activation\ActivationHandler.cs" />
     <Compile Include="Behaviors\NavigationViewHeaderBehavior.cs" />
     <Compile Include="Behaviors\NavigationViewHeaderMode.cs" />
+    <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="Helpers\Json.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Helpers\PasswordManager.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Helpers\SettingsStorageExtensions.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\SampleOrder.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Services\ActivationService.cs" />
@@ -130,6 +132,7 @@
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\SampleDataService.cs" />
     <Compile Include="Services\ThemeSelectorService.cs" />
+    <Compile Include="Singletons\RoleSingleton.cs" />
     <Compile Include="Singletons\UserSingleton.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />

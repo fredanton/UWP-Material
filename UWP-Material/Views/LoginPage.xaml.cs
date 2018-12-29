@@ -31,14 +31,9 @@ namespace UWP_Material.Views
             }
             else
             {
-                byte[] pw = Encoding.ASCII.GetBytes(Password.Password);
-                byte[] st = Encoding.ASCII.GetBytes("alxbrn");
-
-                string pwunhashed = Encoding.UTF8.GetString(PasswordManager.GenerateSaltedHash(pw, st));
-
                 foreach (Models.User i in userSingleton.Users)
                 {
-                    if (i.Username == Username.Text && i.Password == pwunhashed)
+                    if (i.Username == Username.Text && i.Password == Password.Password)
                     {
                         userSingleton.CurrentUser = i;
                         Frame.Navigate(typeof(MainPage));

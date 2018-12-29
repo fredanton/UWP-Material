@@ -106,6 +106,7 @@ namespace UWP_Material.Services
 
         private static void Frame_Navigated(object sender, NavigationEventArgs e)
         {
+
             Navigated?.Invoke(sender, e);
         }
     }
