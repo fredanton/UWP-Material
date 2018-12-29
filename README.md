@@ -3,6 +3,9 @@ A extensive universal windows platform template using material design. Feel free
 
 I decided to go with the MVVM Basic data structure as it was highly recommended by friends & teachers, feel free to change it to your own needs.
 
+# What you need to know
+To use this source i suggest getting some sort of database, either local or from something like Azure. When you have done this then you need to add the connection string to: "Helpers.Constants.cs".
+
 # Features
 - Basic Login & Sign Up
 - Password strenght check
